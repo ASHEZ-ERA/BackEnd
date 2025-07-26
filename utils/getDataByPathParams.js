@@ -3,3 +3,4 @@ export default getDataByPathParams = (data, locationType, locationName)  => {
         return data[locationType].toLowerCase() === locationName.toLowerCase()
     })
 }
+
