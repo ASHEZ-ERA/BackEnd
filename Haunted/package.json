@@ -1,0 +1,19 @@
+{
+  "name": "haunted",
+  "version": "1.0.0",
+  "description": "haunted api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASHEZ-ERA/BackEnd.git"
+  },
+  "author": "Dawood Ashraf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ASHEZ-ERA/BackEnd/issues"
+  },
+  "homepage": "https://github.com/ASHEZ-ERA/BackEnd#readme"
+}
