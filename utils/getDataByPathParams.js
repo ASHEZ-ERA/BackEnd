@@ -1,6 +1,5 @@
-export default getDataByPathParams = (data, locationType, locationName)  => {
-    return data.filter((data) => {
-        return data[locationType].toLowerCase() === locationName.toLowerCase()
+export default function getDataByPathParams(data, locationType, locationName){
+    return data.filter(d => {
+        return d[locationType].tolowerCase() === d.locationName.tolowerCase()
     })
 }
-

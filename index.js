@@ -2,39 +2,102 @@ import {http} from "node:http"
 import db from "./database/db"
 import SendJSONresponse from "./utils/SendJSONresponse"
 import getDataByPathParams from "./utils/getDataByPathParams"
+import getDataByQueryParams from "./utils/getDataByQueryParams"
+import { URL } from "node:url"
 
 const PORT = 8000
-const server =  http.createServer(async(req,res)=>{
+const server = http.createServer(async(req, res)=>{
   const destinations = await db()
-  if(req.url === "/api" && req.method === "GET"){
-        SendJSONresponse(res, 200, destinations);
 
-  } 
 
-  if(req.url.startsWith("/api/continent") && req.method === "GET"){
-    const continent = res.url.split("/").pop()
-    getDataByPathParams(destinations, "continent" , continent)
-        SendJSONresponse(res, 200, filteredData);
+  const objUrl = new URL(req.url, `http://${req.headers.host}`)
+  const queryObj = Object.fromEntries(objUrl.searchParams)
 
+
+
+  if(objUrl.pathname ==="/api" && req.method==="GET")
+  {
+    let filterData = getDataByQueryParams(destinations, objUrl)
+  SendJSONresponse(res, 200, filterData)
   }
 
-  if(req.url.startsWith("api/country") && req.method === "GET"){
+  else if(req.url.startsWith("/api/country") && req.method === ("GET"))
+  {
     const country = res.url.split("/").pop()
-    getDataByPathParams(destinations, "country", country)
-    SendJSONresponse(res, 200, filteredData)
-  }
-  else{
-      SendJSONresponse(res, 200, {
-        error: "not found",
-        message: "the content you're searching for is not available",
-      });
+        getDataByPathParams(destinations, "country", country);
 
+    SendJSONresponse(res,200,filterData)
+  }
+
+  else if(req.url.startsWith("/api/continent") && req.method("GET"))
+  {
+    const continent = res.url.split("/").pop()
+    getDataByPathParams(destinations, "continent", continent)
+    SendJSONresponse(res, 200, filterData)
+  }
+
+  else{
+    SendJSONresponse(res, 404, {
+      error: "error",
+      message: "page not found"
+    })
   }
 })
 
 server.listen(PORT, ()=>{
-  console.log(`server is running on : ${PORT}`)
+  console.log(`server is running at ${PORT}`)
 })
+
+
+
+
+
+// import {http} from "node:http"
+// import db from "./database/db"
+// import SendJSONresponse from "./utils/SendJSONresponse"
+// import getDataByPathParams from "./utils/getDataByPathParams"
+// // import { URL } from "node:url"
+
+// const PORT = 8000
+// const server =  http.createServer(async(req,res)=>{
+
+//   //create a object of url using url constructor
+
+//   const urlObj = new URL(req.url, `http://${req.headers.host}`)
+
+//   const queryObj = Object.fromEntries(urlObj.searchParams)
+
+
+//   const destinations = await db()
+//   if(req.url === "/api" && req.method === "GET"){
+//         SendJSONresponse(res, 200, destinations);
+
+//   } 
+
+//   if(req.url.startsWith("/api/continent") && req.method === "GET"){
+//     const continent = res.url.split("/").pop()
+//     getDataByPathParams(destinations, "continent" , continent)
+//         SendJSONresponse(res, 200, filteredData);
+
+//   }
+
+//   if(req.url.startsWith("api/country") && req.method === "GET"){
+//     const country = res.url.split("/").pop()
+//     getDataByPathParams(destinations, "country", country )
+//     SendJSONresponse(res, 200, filteredData)
+//   }
+//   else{
+//       SendJSONresponse(res, 200, {
+//         error: "not found",
+//         message: "the content you're searching for is not available",
+//       });
+
+//   }
+// })
+
+// server.listen(PORT, ()=>{
+//   console.log(`server is running on : ${PORT}`)
+// })
 
 
 // import { http } from "node:http";
