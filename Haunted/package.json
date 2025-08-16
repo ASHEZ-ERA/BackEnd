@@ -1,10 +1,12 @@
 {
-  "name": "haunted",
+  "name": "from-the-other-side",
   "version": "1.0.0",
-  "description": "haunted api",
-  "main": "index.js",
+  "description": "A platform for sharing ghostly encounters",
+  "main": "server.js",
+  "type": "module",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
