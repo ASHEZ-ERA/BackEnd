@@ -1,0 +1,15 @@
+2025-08-16T05:21:04.640Z- Application started 
+2025-08-16T05:21:04.651Z- application event occured 
+2025-08-16T05:21:07.642Z- Current memory usage : 10.89 
+2025-08-16T05:21:10.642Z- Current memory usage : 12.58 
+2025-08-16T05:21:13.646Z- Current memory usage : 12.63 
+2025-08-16T05:21:16.647Z- Current memory usage : 10.31 
+2025-08-16T05:21:19.656Z- Current memory usage : 9.24 
+2025-08-16T05:21:22.663Z- Current memory usage : 9.26 
+2025-08-16T05:21:25.676Z- Current memory usage : 9.66 
+2025-08-16T05:21:28.683Z- Current memory usage : 9.43 
+2025-08-16T05:21:31.690Z- Current memory usage : 7.29 
+2025-08-16T05:21:34.705Z- Current memory usage : 7.67 
+2025-08-16T05:21:37.709Z- Current memory usage : 7.42 
+2025-08-16T05:21:40.711Z- Current memory usage : 7.37 
+2025-08-16T05:21:43.724Z- Current memory usage : 7.03 
